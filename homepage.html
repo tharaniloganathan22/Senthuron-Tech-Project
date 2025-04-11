@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPR Global - Inspiring Lives, Empowering Communities</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #333;
+            --accent: #d4af37;
+            --text: #333;
+            --light-text: #777;
+            --white: #fff;
+            --light-bg: #f9f9f9;
+            --dark-bg: #000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .container-wide {
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: #b38f2a;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+        
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--primary);
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            margin: 15px auto 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: black;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            color: white;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+                /* Update the logo styles in your CSS */
+        .logo {
+            height: 20px; /* Adjust based on your logo's aspect ratio */
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 100%;
+            width: auto; /* Maintain aspect ratio */
+            max-width: 150px; /* Adjust maximum width as needed */
+        }
+
+        /* Remove the old text logo styles */
+        /* Delete or comment out these if they exist:
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+        */
+        
+        /* Navbar container */
+        nav {
+            background-color: black;
+            border-radius: 40px; /* Rounded ends */
+            padding: 10px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 90%;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo */
+        .navbar-logo img {
+            height: 40px;
+        }
+
+        /* Menu items */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: 500;
+            text-transform: capitalize;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: gold;
+        }
+
+        /* Contact button */
+        .contact-btn {
+            background-color: #d4af37; /* gold color */
+            color: black;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #c09e30;
+        }
+
+        /* Slider Section */
+        .slider {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin-top: 120px;
+        }
+        
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 10;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .slider-dot.active {
+            background: var(--white);
+        }
+        
+        .welcome-section {
+            padding: 50px;
+            background: #f9f9f9;
+            display: flex;
+            justify-content: center;
+        }
+
+        .welcome-box {
+            display: flex;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 1000px;
+            width: 100%;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .welcome-left img {
+            width: 300px;
+            
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .welcome-right {
+            flex: 1;
+        }
+
+        .welcome-right h3 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .welcome-right p {
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .know-more {
+            color: goldenrod;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .welcome-heading-section {
+            text-align: center;
+            padding: 40px 0 10px;
+            background-color: #fff; /* or match your design */
+        }
+
+        .welcome-heading {
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+
+        
+       
+        
+        .brands {
+  background-color: #000;
+  color: #fff;
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand-card {
+  background-color: #1a1a1a;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.brand-card:hover {
+  transform: translateY(-5px);
+}
+
+.brand-card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #f6c90e;
+}
+
+.brand-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.brand-card .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  color: #f6c90e;
+  border: 1px solid #f6c90e;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.brand-card .btn:hover {
+  background-color: #f6c90e;
+  color: #000;
+}
+
+        /* Business Opportunity Section */
+        .opportunity {
+            background-color: var(--dark-bg);
+            color: var(--white);
+        }
+        
+        .opportunity .container {
+            text-align: center;
+        }
+        
+        .opportunity-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .marquee {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 15px 0;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3, .contact-form h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .contact-form input, 
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 1em;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #555;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .slider {
+                height: 60vh;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 15px;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 100px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .slider {
+                height: 50vh;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 50px 0;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .brand-card {
+                padding: 30px 20px;
+            }
+            
+            .slider {
+                height: 40vh;
+            }
+        }
+        .portfolio {
+  background: #f9f9f9;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.portfolio h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.portfolio p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.social-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.social-cards .card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-cards .card img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 15px;
+}
+
+.social-cards .card span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.social-cards .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: add brand hover colors */
+.card.linkedin:hover {
+  background-color: #0077b5;
+  color: #fff;
+}
+
+.card.github:hover {
+  background-color: #24292e;
+  color: #fff;
+}
+
+.card.youtube:hover {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo"></div>
+            <img src="spr logo.png" alt="SPR Global Logo" class="logo-img">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Search our opinion</a></li>
+                    <li><a href="#">Business Opportunity</a></li>
+                    <li><a href="#" class="btn">CONTACT US</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Image Slider Section -->
+    <section class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="Frame 1410083871.png" alt="SPR Global Brand 1">
+            </div>
+            <div class="slide">
+                <img src="jonas.png" alt="SPR Global Brand 2">
+            </div>
+            <div class="slide">
+                <img src="ponnusamy.png" alt="SPR Global Brand 3">
+            </div>
+        </div>
+        <div class="slider-nav">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+    </section>
+
+    <section class="welcome-heading-section">
+        <h2 class="welcome-heading">WELCOME TO SPR GLOBAL</h2>
+    </section>
+
+    <section class="welcome-section">
+        <div class="welcome-box">
+          <div class="welcome-left">
+            <img src="spr logo.png" alt="SPR Global Logo">
+          </div>
+          <div class="welcome-right">
+            <h3>Inspiring Lives, Empowering Communities</h3>
+            <p>At SPR Global, we believe in creating exceptional experiences through our diverse range of brands. From redefining fitness and lifestyle to serving world-class cuisines, we are dedicated to enhancing everyday living.</p>
+            <p>SPR Global stands at the intersection of innovation, quality, and affordability. With a commitment to excellence and customer satisfaction, we curate experiences that cater to various lifestyle needs, ensuring our customers feel valued and inspired.</p>
+            <a href="#" class="know-more">Know More</a>
+          </div>
+        </div>
+      </section>
+      
+
+   
+
+      <section class="brands">
+        <div class="container">
+          <h2 class="section-title">BRANDS WE OPERATE</h2>
+          <div class="brand-grid">
+            <div class="brand-card">
+              <h3>PONNUSAMY</h3>
+              <p>Dive into a culinary journey with Ponnusamy, where traditional flavors meet unmatched quality. Relish the essence of South Indian heritage on your plate.</p>
+              <a href="#" class="btn">KNOW MORE</a>
+            </div>
+            <div class="brand-card">
+              <h3>CHEAP & BEST</h3>
+              <p>Redefining grooming for men, Cheap and Best offers top-notch salon services at unbeatable prices. Get styled by professionals who understand your needs.</p>
+              <a href="#" class="btn">KNOW MORE</a>
+            </div>
+            <div class="brand-card">
+              <h3>SULTAN'S</h3>
+              <p>Savor the rich taste of Sultan’s Biryani, crafted with the finest ingredients and a royal touch. It’s more than just biryani – it’s an experience.</p>
+              <a href="#" class="btn">KNOW MORE</a>
+            </div>
+            <div class="brand-card">
+              <h3>JONAH'S</h3>
+              <p>From continental delicacies to fusion delights, Jonah’s Bistro is the perfect spot to unwind and indulge. Great food, ambiance, and even better memories.</p>
+              <a href="#" class="btn">KNOW MORE</a>
+            </div>
+            <div class="brand-card">
+              <h3>FX</h3>
+              <p>Elevate your shopping experience with FX, bringing you the best in fashion, lifestyle, and innovation under one roof.</p>
+              <a href="#" class="btn">KNOW MORE</a>
+            </div>
+            <div class="brand-card">
+              <h3>SLAM</h3>
+              <p>Redefining lifestyle and fitness, SLAM offers state-of-the-art facilities and personalized training programs for every fitness enthusiast.</p>
+              <a href="#" class="btn">KNOW MORE</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    <!-- Business Opportunity Section -->
+    <section class="opportunity">
+        <div class="container-wide">
+            <div class="marquee">
+                <div class="marquee-content">
+                    BUSINESS OPPORTUNITIES • BUSINESS OPPORTUNITIES • BUSINESS OPPORTUNITIES • BUSINESS OPPORTUNITIES •
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="opportunity-content">
+                <h2 class="section-title" style="color: var(--white);">Become an Entrepreneur Today</h2>
+                <p>Grow Your Business with SPR Global. Partner will be an entirely new potential in the thriving industries of food, fashion, fitness, and entertainment. SPR Global provides the support, resources, and proven business models you need to succeed.</p>
+                <a href="#" class="btn">LEARN MORE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Corporate Office</h3>
+                    <p>SPR Global Headquarters</p>
+                    <p>City, State, ZIP Code</p>
+                    <p><a href="tel:+918103438121">+91 8103438121</a></p>
+                    <p><a href="mailto:jok@sprglobal.com">jok@sprglobal.com</a></p>
+                    <p><a href="mailto:sprglobal@gmail.com">sprglobal@gmail.com</a></p>
+                </div>
+                <div class="contact-form">
+                    <h3>Feel Free to Contact Us</h3>
+                    <form>
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="tel" placeholder="Phone Number">
+                        <input type="email" placeholder="Email" required>
+                        <select>
+                            <option value="">Select an option</option>
+                            <option>Hospital School</option>
+                            <option>Managing School</option>
+                            <option>Student</option>
+                        </select>
+                        <textarea placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="portfolio">
+        <div class="container">
+          <h2>Connect With Me</h2>
+          <p>Let’s collaborate or connect professionally.</p>
+          <div class="social-cards">
+            <a href="https://www.linkedin.com/in/tharani-loganathan-577397254/" class="card linkedin" target="_blank">
+              <img src="icons8-linkedin-48.png" alt="LinkedIn">
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/tharaniloganathan22" class="card github" target="_blank">
+              <img src="icons8-github-30.png" alt="GitHub">
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.youtube.com/@TharusVlog_" class="card youtube" target="_blank">
+              <img src="icons8-youtube-logo-48.png" alt="YouTube">
+              <span>YouTube</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Branks We Operate</a></li>
+                        <li><a href="#">Business Opportunity</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Brand</h3>
+                    <ul>
+                        <li><a href="#">The Promissory Elite</a></li>
+                        <li><a href="#">Salaris's Bayers</a></li>
+                        <li><a href="#">Junior's Bilboo</a></li>
+                        <li><a href="#">Slam Fitness Studio</a></li>
+                        <li><a href="#">Ching & fine</a></li>
+                        <li><a href="#">Promissories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="tel:+1899851881">+189 985-18-81</a></li>
+                        <li><a href="mailto:repeating@gmail.com">repeating@gmail.com</a></li>
+                        <li>SPR Global Headquarters</li>
+                        <li>Lives 11 City, State, ZIP Code</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>SPR Global is a industry company representing anonymous from Red, South, China, and American Museum. We are committed to delivering significant commitment through our dreams shop officials.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Slider Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelector('.slides');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentSlide = 0;
+            const slideCount = document.querySelectorAll('.slide').length;
+            
+            function showSlide(index) {
+                slides.style.transform = `translateX(-${index * 100}%)`;
+                
+                // Update dots
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+            
+            // Dot click events
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => showSlide(index));
+            });
+            
+            // Auto-slide
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slideCount;
+                showSlide(currentSlide);
+            }, 5000);
+            
+            // You can add more interactive elements here as needed
+        });
+    </script>
+</body>
+</html>
